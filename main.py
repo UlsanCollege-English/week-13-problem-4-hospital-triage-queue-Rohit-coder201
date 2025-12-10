@@ -16,17 +16,17 @@ def select_patients(patients, k):
     no patients, return [].
     """
 
-    # Quick implementation: sort by severity (ascending) then arrival_order (ascending)
-    # Return up to k patient names in that order.
-    if not patients or k <= 0:
-        return []
-
-    # Use a stable sort: key sorts by severity then arrival_order
+    # TODO Steps 1–3: Restate the problem, and list input, output, and key fields.
+    # TODO Steps 4–5: Decide whether to use sorting or a priority queue; write pseudocode.
+    # TODO Step 6: Implement the selection logic to pick the top k patients.
+    # TODO Step 7: Test with small examples (including empty list and k=0).
+    # TODO Step 8: Confirm the time complexity is about O(n log n).
+    if k == 0 or not patients:
+      return []
+    # Sort by severity (ascending), then arrival_order (ascending)
     sorted_patients = sorted(patients, key=lambda p: (p["severity"], p["arrival_order"]))
-
-    # Take up to k patients and return their names
-    selected = sorted_patients[:k]
-    return [p["name"] for p in selected]
+    # Select up to k patients
+    return [p["name"] for p in sorted_patients[:k]]
 
 
 if __name__ == "__main__":
